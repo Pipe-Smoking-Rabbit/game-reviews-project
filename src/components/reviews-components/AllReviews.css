@@ -1,0 +1,15 @@
+.Review-Card {
+    box-shadow: 0 3px 6px rgb(209, 209, 209);
+    padding: 0.1rem;
+}
+
+img {
+    max-width: 60%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    width: 98%;
+    margin-left: 1%;
+}
