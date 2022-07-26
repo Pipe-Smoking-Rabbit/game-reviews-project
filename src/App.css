@@ -9,14 +9,13 @@
   top: 0px;
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(198, 198, 198) ;
-
 }
 
 .Page-Content {
-  background-color: rgb(245, 242, 239);
   overflow: scroll;
   margin-top: 95px;
   margin-bottom: 20px;
+  background-color: rgb(245, 242, 239);
 }
 
 .Loading-Screen {

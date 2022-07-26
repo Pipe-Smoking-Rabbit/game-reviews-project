@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="" element={<AllReviews />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/reviews/*" element={<ReviewsByCategory />} />
+          <Route path="/reviews/:category" element={<ReviewsByCategory />} />
         </Routes>
         <NavBar />
       </div>
