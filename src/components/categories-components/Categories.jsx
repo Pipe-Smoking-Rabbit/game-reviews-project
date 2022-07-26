@@ -35,8 +35,8 @@ export default function Categories() {
       <ul>
         {categoriesList.map((category) => {
           return (
-            <Link className="Link" to={`/reviews/${category.slug}`}>
-              <li className="Category-Card">
+            <Link className="Card-Link" to={`/reviews/${category.slug}`}>
+              <li className="Category-Card" key={category.slug}>
                 <h3 className="Category-Card-Name">
                   {category.slug.toUpperCase()}
                 </h3>

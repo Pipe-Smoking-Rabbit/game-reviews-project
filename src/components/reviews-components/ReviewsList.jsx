@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./AllReviews.css";
 const axios = require("axios").default;
 
-export default function AllReviews() {
+export default function ReviewsList() {
   const [reviewsList, setReviewsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { category } = useParams();
   const peekPreviewRegex = /.{1,100}/s;
 
   function fetchReviews() {
     setIsLoading(true);
     axios
-      .get(`https://nc-my-game-reviews-project.herokuapp.com/api/reviews`)
+      .get(
+        `https://nc-my-game-reviews-project.herokuapp.com/api/reviews`,
+        { params: { category: category } }
+      )
       .then((response) => {
         setIsLoading(false);
         setReviewsList(response.data.reviews);
@@ -19,7 +24,7 @@ export default function AllReviews() {
 
   useEffect(() => {
     fetchReviews();
-  }, []);
+  }, [category]);
 
   if (isLoading)
     return (
@@ -31,7 +36,7 @@ export default function AllReviews() {
       </div>
     );
   return (
-    <div className="Page-Content All-Reviews">
+    <div className="Page-Content Reviews-By-Category">
       <ul>
         {reviewsList.map((review) => {
           return (
