@@ -1,10 +1,84 @@
 .Review-Card {
-    box-shadow: 0 3px 6px rgb(209, 209, 209);
-    padding: 0.1rem;
+    box-shadow: 1px 1px 2px rgb(209, 209, 209);
+    border: 0.5px solid rgb(247, 247, 247);
+    border-radius: 3%;
+    padding: 0.0rem;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    height: 9.5rem;
 }
 
-img {
-    max-width: 60%;
+.Review-Card-Info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 63.5%;
+    flex: 1;
+}
+
+.Review-Card-Bottom-Row-Info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Review-Card-Title {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.Review-Card-Category {
+    margin: 0.2rem;
+    margin-top: 0rem;
+    font-size: 0.66rem;
+    font-weight: 500;
+}
+
+.Review-Card-Peek-Preview {
+    margin: 0.2rem;
+    
+    font-size: 0.66rem;
+    flex: 1;
+}
+
+.Review-Card-Author {
+    margin: 0.2rem;
+    font-size: 0.60rem;
+    font-weight: 500;
+}
+
+.Review-Card-Date {
+    margin: 0.1rem;
+    font-size: 0.66rem;
+    font-weight: 300;
+    flex: 1;
+}
+
+.Review-Card-Kudos {
+    margin: 0.1rem;
+    font-size: 0.66rem;
+    font-weight: 500;
+    text-align: center;
+    flex: 1;
+}
+
+.Review-Card-Comments {
+    margin: 0.1rem;
+    font-size: 0.66rem;
+    font-weight: 500;
+    text-align: center;
+    flex: 1;
+}
+
+.Review-Card-Image {
+    max-width: 40%;
+    object-fit: cover;
+    border-radius: 3%;
+    flex: 1;
 }
 
 ul {
