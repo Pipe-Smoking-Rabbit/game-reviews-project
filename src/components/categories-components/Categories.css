@@ -1,0 +1,29 @@
+.Category-Card {
+    background-color: white;
+    box-shadow: 1px 1px 2px rgb(209, 209, 209);
+    border: 0.5px solid rgb(247, 247, 247);
+    border-radius: 3%;
+    padding: 0.0rem;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    height: 8rem;
+    color: black;
+    transition-delay: 0.1ms;
+}
+
+.Category-Card:active {
+    background-color: rgb(223, 219, 214);
+    box-shadow: 2px 4px 8px rgb(205, 205, 205);
+}
+
+.Link {
+    text-decoration: none;
+}
+
+.Category-Card-Description {
+    margin: 0.5rem;
+    margin-top: 0;
+}

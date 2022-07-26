@@ -7,7 +7,7 @@ export default function NavBar() {
         <Link to={"/categories"}>Categories</Link>
       </button>
       <button>
-        <Link to={"/home"}>Reviews</Link>
+        <Link to={""}>Reviews</Link>
       </button>
       <button>
         <Link to={"/users"}>Switch User</Link>
