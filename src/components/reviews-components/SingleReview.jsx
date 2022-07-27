@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import KudosSingleReview from "../kudos-components/KudosSingleReview";
 import "./SingleReview.css";
 const axios = require("axios").default;
 
@@ -39,17 +40,17 @@ export default function SingleReview() {
         <div className="Single-Review-Header-Info">
           <h2 className="Single-Review-Title">{review.title}</h2>
           <h5 className="Single-Review-Category">A {review.category} game</h5>
-          <h7 className="Single-Review-Author">
+          <p className="Single-Review-Author">
             Posted by {review.owner}, on {review.created_at}
-          </h7>
+          </p>
         </div>
         <img className="Single-Review-Image" src={review.review_img_url} />
       </header>
       <p className="Single-Review-Body">{review.review_body}</p>
-      <h7 className="Single-Review-Kudos">{review.votes} Kudos</h7>
-      <h7 className="Single-Review-Comments">
+      <KudosSingleReview review={review} />
+      <p className="Single-Review-Comments">
         {review.comment_count} Comments
-      </h7>
+      </p>
     </section>
   );
 }
