@@ -4,26 +4,33 @@
 }
 
 .Single-Review-Header {
+  height: 10.5rem;
   display: flex;
   flex-direction: row;
 }
 
 .Single-Review-Title {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .Single-Review-Category {
   margin-top: 0.4rem;
+  margin-bottom: 0;
+  flex: 1;
 }
 
 .Single-Review-Header-Info {
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
   text-align: left;
   margin: 0.5rem;
   margin-bottom: 0;
 }
 
 .Single-Review-Image {
-  max-width: 35%;
+  width: 38%;
   flex: 1;
   object-fit: cover;
   border-radius: 2%;
