@@ -10,6 +10,12 @@
     justify-content: space-between;
     margin-top: 0.5rem;
     height: 9.5rem;
+    transition-delay: 0.1ms;
+}
+
+.Review-Card:active {
+    background-color: rgb(223, 219, 214);
+    box-shadow: 2px 4px 8px rgb(205, 205, 205);
 }
 
 .Review-Card-Info {
