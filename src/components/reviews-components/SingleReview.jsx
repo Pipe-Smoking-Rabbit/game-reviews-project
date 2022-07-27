@@ -17,7 +17,6 @@ export default function SingleReview() {
       .then((response) => {
         setIsLoading(false);
         setReview(response.data.review);
-        console.log(response.data.review);
       });
   }
 
