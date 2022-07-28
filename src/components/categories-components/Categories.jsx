@@ -37,9 +37,16 @@ export default function Categories() {
       <ul>
         {categoriesList.map((category) => {
           return (
-            <Link className="Card-Link" to={`/reviews/${category.slug}`}>
-              <li className="Category-Card" key={category.slug}>
-                <img className="Category-Image" src={getRelevantImage(category.slug)} />
+            <Link
+              className="Card-Link"
+              to={`/reviews/${category.slug}`}
+              key={category.slug}
+            >
+              <li className="Category-Card">
+                <img
+                  className="Category-Image"
+                  src={getRelevantImage(category.slug)}
+                />
                 <h3 className="Category-Card-Name">
                   {category.slug.toUpperCase()}
                 </h3>

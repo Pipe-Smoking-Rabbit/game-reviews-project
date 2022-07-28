@@ -1,0 +1,25 @@
+.User-Card {
+    background-color: rgb(255, 255, 255);
+    padding: 0.0rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    height: 12rem;
+    transition-delay: 0.1ms;
+    width: 70%;
+    border-radius: 5%;
+    border: 1px solid lightgray;
+}
+
+.User-Page-Subtitle {
+    margin-bottom: 0;
+}
+
+.User-Card-Image {
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+}
