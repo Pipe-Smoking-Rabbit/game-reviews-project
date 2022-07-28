@@ -28,8 +28,9 @@ export default function ReviewsList() {
 
   if (isLoading)
     return (
-      <div className="Page-Content Loading-Screen">
+      <div className="Page-Content">
         <img
+          className="Loading-Screen"
           src="https://qph.cf2.quoracdn.net/main-qimg-7a960949a5d51cf8b6ffef964d57feec"
           alt="Loading reviews..."
         />
