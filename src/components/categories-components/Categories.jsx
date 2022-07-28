@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import getRelevantImage from "../../functions/getRelevantImage";
 import "./Categories.css";
 const axios = require("axios").default;
 
@@ -38,12 +39,13 @@ export default function Categories() {
           return (
             <Link className="Card-Link" to={`/reviews/${category.slug}`}>
               <li className="Category-Card" key={category.slug}>
+                <img className="Category-Image" src={getRelevantImage(category.slug)} />
                 <h3 className="Category-Card-Name">
                   {category.slug.toUpperCase()}
                 </h3>
-                <p className="Category-Card-Description">
+                {/* <p className="Category-Card-Description">
                   {category.description}
-                </p>
+                </p> */}
               </li>
             </Link>
           );
