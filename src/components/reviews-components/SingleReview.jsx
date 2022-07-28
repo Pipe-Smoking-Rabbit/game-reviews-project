@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ViewComments from "../comments-components/ViewComments";
 import KudosSingleReview from "../kudos-components/KudosSingleReview";
 import "./SingleReview.css";
 const axios = require("axios").default;
@@ -7,6 +8,7 @@ const axios = require("axios").default;
 export default function SingleReview() {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isCommentsEnabled, setIsCommentsEnabled] = useState(false);
   const { review_id } = useParams();
 
   function fetchSingleReview() {
@@ -49,9 +51,19 @@ export default function SingleReview() {
       </header>
       <p className="Single-Review-Body">{review.review_body}</p>
       <KudosSingleReview review={review} />
-      <p className="Single-Review-Comments">
-        {review.comment_count} Comments
-      </p>
+      <p className="Single-Review-Comments">{review.comment_count} Comments</p>
+      {review.comment_count !== "0" ? (
+        <button
+          onClick={() => {
+            setIsCommentsEnabled(!isCommentsEnabled);
+          }}
+        >
+          View comments...
+        </button>
+      ) : (
+        <></>
+      )}
+      {isCommentsEnabled ? <ViewComments review_id={review_id} /> : <></>}
     </section>
   );
 }

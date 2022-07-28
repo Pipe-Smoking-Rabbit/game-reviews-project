@@ -1,0 +1,39 @@
+.Comment-Card {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Comment-Card-Author {
+  color: rgb(150, 150, 150);
+  max-width: fit-content;
+  margin: 0.5rem;
+  margin-bottom: 0;
+  margin-right: 0.1rem;
+  font-size: 0.8rem;
+}
+
+.Comment-Card-Date {
+  margin: 0.5rem;
+  margin-bottom: 0;
+  margin-left: 0.1rem;
+  color: rgb(150, 150, 150);
+  max-width: fit-content;
+  font-size: 0.8rem;
+}
+
+.Comment-Card-Body {
+  margin: 0.5rem;
+  margin-top: 0.2rem;
+  margin-right: 1.5rem;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.Comment-Section-Buffering {
+  max-width: 100%;
+  margin-top: -8rem;
+}
