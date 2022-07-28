@@ -1,7 +1,5 @@
 .Category-Card {
     background-color: white;
-    border: 2px solid rgb(105, 105, 105);
-    border-radius: 3%;
     padding: 0.0rem;
     display: inline-flex;
     justify-content: center;
@@ -21,10 +19,9 @@
 .Category-Card-Name {
     position: absolute;
     background-color: rgb(255, 255, 255, 0.7);
-    border-left: 2px solid rgb(105, 105, 105);
-    border-right: 2px solid rgb(105, 105, 105);
-    margin: auto;
-    width: 88%;
+    border-left: 1px solid rgb(105, 105, 105);
+    border-right: 1px solid rgb(105, 105, 105);
+    width: 87.75%;
     font-size: 1.6rem;
     font-weight: 500;
 }
@@ -42,5 +39,5 @@
     object-fit: cover;
     border-radius: 3%;
     flex: 1;
-    
+    border: 1px solid rgb(105, 105, 105);
 }
