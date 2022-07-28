@@ -1,35 +1,39 @@
 .Single-Review-Kudos {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px dashed gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dashed gray;
 }
 
 .Kudos-Number-Text {
-    width: 25%;
-    text-align: center;
+  width: 25%;
+  text-align: center;
 }
 
 .Kudos-Button {
-    height: 2rem;
-    width: 2rem;
-    margin: 0.4rem;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15%;
-    font-weight: bold;
-    border: none;
+  height: 2rem;
+  width: 2rem;
+  margin: 0.4rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15%;
+  font-weight: bold;
+  border: none;
+}
+
+.Kudos-Button:disabled {
+  background-color: rgb(240, 240, 240);
+  color: lightgrey;
 }
 
 .Kudos-Plus-Button-Active {
-    background-color: rgb(124, 201, 124);
-    border: 1px solid black;
-    box-shadow: 0 2px 4px 0 black
+  background-color: rgb(124, 201, 124);
+  border: 1px solid black;
+  box-shadow: 0 2px 4px 0 black;
 }
 
 .Kudos-Minus-Button-Active {
-    background-color: rgb(255, 93, 93);
-    border: 1px solid black;
-    box-shadow: 0px 1px 2px 0px black
+  background-color: rgb(255, 93, 93);
+  border: 1px solid black;
+  box-shadow: 0px 1px 2px 0px black;
 }
-
