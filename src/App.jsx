@@ -10,7 +10,12 @@ import SingleReview from "./components/reviews-components/SingleReview";
 import UserLogin from "./components/users-components/UserLogin";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({
+    username: "tickle122",
+    name: "Tom Tickle",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
+  });
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>

@@ -1,8 +1,11 @@
 import { useState, useContext, useEffect } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUser";
+import { Link } from "react-router-dom";
 import { fetchUsers } from "../../utils/api";
 import "./UserLogin.css";
 
 export default function UserLogin() {
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
   const [usersList, setUsersList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -13,7 +16,13 @@ export default function UserLogin() {
       setIsLoading(false);
     });
   }, []);
-  console.log(usersList);
+  
+  function switchUser(user){
+    setCurrentUser(user)
+  }
+
+  console.log(currentUser.avatar_url)
+
   if (isLoading)
     return (
       <div className="Page-Content">
@@ -29,11 +38,18 @@ export default function UserLogin() {
         <h2 className="User-Page-Subtitle">Who is looking at reviews?</h2>
       <ul>
         {usersList.map((user) => {
-          return <li className="User-Card" key={user.username}>
-            
-            <img className="User-Card-Image" src={user.avatar_url} alt="User avatar"/>
-            <h3 className="User-Card-Username">{user.username}</h3>
-          </li>
+          return (
+            <li className="User-Card" onClick={()=>{switchUser(user)}} key={user.username}>
+              <Link className="Card-Link" to={"/"}>
+                <img
+                  className="User-Card-Image"
+                  src={user.avatar_url}
+                  alt="User avatar"
+                />
+                <h3 className="User-Card-Username">{user.username}</h3>
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </section>
