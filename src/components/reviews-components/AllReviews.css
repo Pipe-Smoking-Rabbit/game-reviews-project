@@ -88,6 +88,22 @@
     flex: 1;
 }
 
+.Sort-And-Order-Section {
+    display: flex;
+}
+
+.Sort-Section {
+    flex: 1;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.Sort-Options {
+    flex: 1;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
 ul {
     list-style: none;
     padding: 0;

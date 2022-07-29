@@ -9,7 +9,7 @@ export default function SingleReview() {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isCommentsEnabled, setIsCommentsEnabled] = useState(false);
-  const [commentCount, setCommentCount] = useState(0)
+  const [commentCount, setCommentCount] = useState(0);
   const { review_id } = useParams();
 
   function fetchSingleReview() {
@@ -21,7 +21,7 @@ export default function SingleReview() {
       .then((response) => {
         setIsLoading(false);
         setReview(response.data.review);
-        setCommentCount(+response.data.review.comment_count)
+        setCommentCount(+response.data.review.comment_count);
       });
   }
 
@@ -33,7 +33,7 @@ export default function SingleReview() {
     return (
       <div className="Page-Content">
         <img
-        className="Loading-Screen"
+          className="Loading-Screen"
           src="https://qph.cf2.quoracdn.net/main-qimg-7a960949a5d51cf8b6ffef964d57feec"
           alt="Loading reviews..."
         />
@@ -54,19 +54,22 @@ export default function SingleReview() {
       <p className="Single-Review-Body">{review.review_body}</p>
       <KudosSingleReview review={review} />
       <p className="Single-Review-Comments">{commentCount} Comments</p>
-      {review.comment_count !== "0" ? (
-        isCommentsEnabled ? (
+      {isCommentsEnabled ? (
         <></>
-      ): <button
+      ) : (
+        <button
           onClick={() => {
             setIsCommentsEnabled(true);
           }}
         >
           View comments...
-        </button>) : (
+        </button>
+      )}
+      {isCommentsEnabled ? (
+        <ViewComments review_id={review_id} setCommentCount={setCommentCount} />
+      ) : (
         <></>
       )}
-      {isCommentsEnabled ? <ViewComments review_id={review_id} setCommentCount={setCommentCount} /> : <></>}
     </section>
   );
 }

@@ -21,8 +21,6 @@ export default function UserLogin() {
     setCurrentUser(user)
   }
 
-  console.log(currentUser.avatar_url)
-
   if (isLoading)
     return (
       <div className="Page-Content">
