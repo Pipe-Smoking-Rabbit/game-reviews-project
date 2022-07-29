@@ -9,6 +9,7 @@ export default function SingleReview() {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isCommentsEnabled, setIsCommentsEnabled] = useState(false);
+  const [commentCount, setCommentCount] = useState(0)
   const { review_id } = useParams();
 
   function fetchSingleReview() {
@@ -20,6 +21,7 @@ export default function SingleReview() {
       .then((response) => {
         setIsLoading(false);
         setReview(response.data.review);
+        setCommentCount(+response.data.review.comment_count)
       });
   }
 
@@ -51,19 +53,20 @@ export default function SingleReview() {
       </header>
       <p className="Single-Review-Body">{review.review_body}</p>
       <KudosSingleReview review={review} />
-      <p className="Single-Review-Comments">{review.comment_count} Comments</p>
+      <p className="Single-Review-Comments">{commentCount} Comments</p>
       {review.comment_count !== "0" ? (
-        <button
+        isCommentsEnabled ? (
+        <></>
+      ): <button
           onClick={() => {
-            setIsCommentsEnabled(!isCommentsEnabled);
+            setIsCommentsEnabled(true);
           }}
         >
           View comments...
-        </button>
-      ) : (
+        </button>) : (
         <></>
       )}
-      {isCommentsEnabled ? <ViewComments review_id={review_id} /> : <></>}
+      {isCommentsEnabled ? <ViewComments review_id={review_id} setCommentCount={setCommentCount} /> : <></>}
     </section>
   );
 }

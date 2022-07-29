@@ -13,10 +13,9 @@ export default function ReviewsList() {
   function fetchReviews() {
     setIsLoading(true);
     axios
-      .get(
-        `https://nc-my-game-reviews-project.herokuapp.com/api/reviews`,
-        { params: { category: category } }
-      )
+      .get(`https://nc-my-game-reviews-project.herokuapp.com/api/reviews`, {
+        params: { category: category },
+      })
       .then((response) => {
         setIsLoading(false);
         setReviewsList(response.data.reviews);
@@ -43,8 +42,12 @@ export default function ReviewsList() {
       <ul>
         {reviewsList.map((review) => {
           return (
-            <Link className="Card-Link" to={`/review/${review.review_id}`}>
-              <li className="Review-Card" key={review.review_id}>
+            <Link
+              className="Card-Link"
+              to={`/review/${review.review_id}`}
+              key={review.review_id}
+            >
+              <li className="Review-Card">
                 <div className="Review-Card-Info">
                   <h3 className="Review-Card-Title">{review.title}</h3>
                   <h4 className="Review-Card-Category">
