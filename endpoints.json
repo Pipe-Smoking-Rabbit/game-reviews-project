@@ -89,7 +89,10 @@
   },
   "POST /api/reviews/:review_id/comments": {
     "description": "posts a comment on a game review",
-    "queries": [],
+    "exampleSend": {
+      "body": "I loved this game too!",
+      "username": "pipe-smoking-rabbit"
+    },
     "exampleResponse": {
       "author": "mallionaire",
       "body": "What is grief, if not love persevering",

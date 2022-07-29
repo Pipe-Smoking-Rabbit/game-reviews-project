@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { fetchComments } from "../../utils/api";
-import "./ViewComments.css";
+import "./Comments.css";
+import PostComment from "./PostComment";
 
-export default function ViewComments({ review_id }) {
+export default function ViewComments({ review_id, setCommentCount }) {
   const [commentsList, setCommentsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
     fetchComments(review_id).then((response) => {
-      setCommentsList(response.data.comments);
+      setCommentsList(response.data.comments.reverse());
       setIsLoading(false);
     });
   }, []);
@@ -26,6 +27,11 @@ export default function ViewComments({ review_id }) {
     );
   return (
     <section className="Comment-Section">
+      <PostComment
+        review_id={review_id}
+        setCommentsList={setCommentsList}
+        setCommentCount={setCommentCount}
+      />
       <ul>
         {commentsList.map((comment) => {
           return (

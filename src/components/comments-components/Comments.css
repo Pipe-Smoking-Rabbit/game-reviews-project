@@ -37,3 +37,17 @@
   max-width: 100%;
   margin-top: -8rem;
 }
+
+.Post-Comment-Button {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  object-fit: cover;
+  height: 1.25rem;
+  width: 1.5rem;
+}
+
+.Post-Comment-Button-Image {
+  height: 1.25rem;
+  width: 1.5rem;
+}
