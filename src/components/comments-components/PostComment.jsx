@@ -32,9 +32,10 @@ export default function PostComment({ setCommentsList, review_id, setCommentCoun
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="post_comment">{username} -</label>
+      <form className="Post-Comment" onSubmit={handleSubmit}>
+        <label className="Post-Comment-Label" htmlFor="post_comment">{username} -</label>
         <input
+        className="Post-Comment-Input"
           value={newCommentBody}
           onChange={(event) => {
             setNewCommentBody(event.target.value);
