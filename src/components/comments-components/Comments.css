@@ -43,24 +43,31 @@
   flex-direction: row;
   align-items: center;
   margin-left: 0.7rem;
+  height: fit-content;
 }
 
 .Post-Comment-Label {
+  max-width: fit-content;
   font-size: 0.8rem;
   font-weight: bold;
   color: rgb(150, 150, 150);
 }
 
 .Post-Comment-Input {
+  position: relative;
+  top: 0.5rem;
+  flex: 1;
   border: none;
-  height: 1.25rem;
-  max-width: fit-content;
+  height: fit-content;
   padding-right: 1.75rem;
+  margin-right: 2rem;
+  width: 70%;
 }
 
 .Post-Comment-Button {
   position: relative;
-  right: 1.5rem;
+  top: 0.5rem;
+  right: 3.5rem;
   display: inline-flex;
   padding: 0;
   border: 0;
