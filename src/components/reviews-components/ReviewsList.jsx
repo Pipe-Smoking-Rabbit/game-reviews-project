@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./AllReviews.css";
+import SortReviews from "./SortReviews";
 const axios = require("axios").default;
 
 export default function ReviewsList() {
@@ -38,6 +39,7 @@ export default function ReviewsList() {
     );
   return (
     <div className="Page-Content Reviews-By-Category">
+      <SortReviews />
       <ul>
         {reviewsList.map((review) => {
           return (
