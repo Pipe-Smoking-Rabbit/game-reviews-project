@@ -30,6 +30,7 @@ export default function UserLogin() {
       <ul>
         {usersList.map((user) => {
           return <li className="User-Card" key={user.username}>
+            
             <img className="User-Card-Image" src={user.avatar_url} alt="User avatar"/>
             <h3 className="User-Card-Username">{user.username}</h3>
           </li>
