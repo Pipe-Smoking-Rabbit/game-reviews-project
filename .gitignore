@@ -24,3 +24,5 @@ yarn-error.log*
 
 # wire-frame plan
 /Games-Reviews-Plan.png
+# Local Netlify folder
+.netlify
