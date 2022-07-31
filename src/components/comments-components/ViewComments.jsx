@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchComments } from "../../utils/api";
+import displayDate from "../../functions/displayDate";
 import "./Comments.css";
 import PostComment from "./PostComment";
 
@@ -37,7 +38,7 @@ export default function ViewComments({ review_id, setCommentCount }) {
           return (
             <li className="Comment-Card" key={comment.comment_id}>
               <h6 className="Comment-Card-Author">{comment.author} -</h6>
-              <h6 className="Comment-Card-Date">{comment.created_at}</h6>
+              <h6 className="Comment-Card-Date">{displayDate(comment.created_at)}</h6>
               <p className="Comment-Card-Body">{comment.body}</p>
             </li>
           );

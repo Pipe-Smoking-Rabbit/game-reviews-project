@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ViewComments from "../comments-components/ViewComments";
 import KudosSingleReview from "../kudos-components/KudosSingleReview";
+import displayDate from "../../functions/displayDate";
 import "./SingleReview.css";
 const axios = require("axios").default;
 
@@ -46,7 +47,7 @@ export default function SingleReview() {
           <h2 className="Single-Review-Title">{review.title}</h2>
           <h5 className="Single-Review-Category">A {review.category} game</h5>
           <p className="Single-Review-Author">
-            Posted by {review.owner}, on {review.created_at}
+            Posted by {review.owner}, <br/>{displayDate(review.created_at)}
           </p>
         </div>
         <img className="Single-Review-Image" src={review.review_img_url} />
@@ -58,6 +59,7 @@ export default function SingleReview() {
         <></>
       ) : (
         <button
+        className="View-Comments"
           onClick={() => {
             setIsCommentsEnabled(true);
           }}

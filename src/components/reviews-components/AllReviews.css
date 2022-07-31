@@ -1,112 +1,180 @@
 .Review-Card {
-    background-color: white;
-    box-shadow: 1px 1px 2px rgb(209, 209, 209);
-    border: 0.5px solid rgb(247, 247, 247);
-    border-radius: 3%;
-    padding: 0.0rem;
-    display: inline-flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    height: 9.5rem;
-    transition-delay: 0.1ms;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgb(209, 209, 209);
+  border: 0.5px solid rgb(247, 247, 247);
+  border-radius: 3%;
+  padding: 0.3rem;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 9.5rem;
+  width: 95%;
 }
 
 .Review-Card:active {
-    background-color: rgb(223, 219, 214);
-    box-shadow: 2px 4px 8px rgb(205, 205, 205);
+  background-color: rgb(223, 219, 214);
+  box-shadow: 2px 4px 8px rgb(205, 205, 205);
 }
 
 .Review-Card-Info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    max-width: 63.5%;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 63.5%;
+  flex: 1;
 }
 
 .Review-Card-Bottom-Row-Info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
 }
 
 .Review-Card-Title {
-    margin: 0.2rem;
-    font-size: 0.9rem;
+  margin: 0.2rem;
+  font-size: 0.9rem;
 }
 
 .Review-Card-Category {
-    margin: 0.2rem;
-    margin-top: 0rem;
-    font-size: 0.66rem;
-    font-weight: 500;
+  margin: 0.2rem;
+  margin-top: 0rem;
+  font-size: 0.66rem;
+  font-weight: 500;
 }
 
 .Review-Card-Peek-Preview {
-    margin: 0.2rem;
-    
-    font-size: 0.66rem;
-    flex: 1;
+  margin: 0.2rem;
+  font-size: 0.6rem;
+  flex: 1;
 }
 
 .Review-Card-Author {
-    margin: 0.2rem;
-    font-size: 0.60rem;
-    font-weight: 500;
+  margin: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 500;
 }
 
 .Review-Card-Date {
-    margin: 0.1rem;
-    font-size: 0.66rem;
-    font-weight: 300;
-    flex: 1;
+  margin: 0.1rem;
+  margin-left: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 300;
+  width:fit-content
 }
 
 .Review-Card-Kudos {
-    margin: 0.1rem;
-    font-size: 0.66rem;
-    font-weight: 500;
-    text-align: center;
-    flex: 1;
+  margin: 0.1rem;
+  margin-left: 0.3rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  width: fit-content;
 }
 
 .Review-Card-Comments {
-    margin: 0.1rem;
-    font-size: 0.66rem;
-    font-weight: 500;
-    text-align: center;
-    flex: 1;
+  margin: 0.1rem;
+  margin-left: 0.3rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .Review-Card-Image {
-    max-width: 40%;
-    object-fit: cover;
-    border-radius: 3%;
-    flex: 1;
+  max-width: 40%;
+  object-fit: cover;
+  border-radius: 3%;
+  flex: 1;
 }
 
 .Sort-And-Order-Section {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
 }
 
 .Sort-Section {
-    flex: 1;
-    display: inline-flex;
-    justify-content: space-between;
+  flex: 1;
+  display: inline-flex;
+  justify-content: right;
 }
 
 .Sort-Options {
-    flex: 1;
-    display: inline-flex;
-    justify-content: space-around;
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Sort-Button {
+  background-color: white;
+  border: 1px solid rgb(159, 159, 159);
+  border-radius: 5%;
+  height: 2.5rem;
+  width: 17.5%;
+  font-size: 2.2vw;
+}
+
+.Sort-Button:disabled {
+  background-color: rgb(249, 249, 249);
+  border: 1px solid rgb(138, 138, 138);
+  box-shadow: 0px 1px 3px 0px rgb(0, 0, 0);
+  transform: translateY(-2px);
+  border-radius: 5%;
+  height: 2.5rem;
+  width: 17.5%;
+  font-size: 2.2vw;
+  color: inherit;
+}
+
+.Sort-Enable {
+  font-size: 3vw;
+  margin-right: 0.5rem;
+}
+
+.Sort-Enable-Active {
+  font-size: 3vw;
+  margin-right: 0.5rem;
+  border: 2px solid rgb(89, 89, 89);
+}
+
+.Sort-Comments {
+  font-size: 2vw;
+}
+
+.Order-Section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+}
+
+.Order-Button {
+  background-color: white;
+  border: 1px solid rgb(159, 159, 159);
+  border-radius: 5%;
+  height: 1.5rem;
+  width: 45%;
+  font-size: 2.5vw;
+}
+
+.Order-Button:disabled {
+  background-color: rgb(249, 249, 249);
+  border: 1px solid rgb(138, 138, 138);
+  box-shadow: 0px 1px 3px 0px rgb(0, 0, 0);
+  transform: translateY(-2px);
+  border-radius: 5%;
+  height: 1.5rem;
+  width: 45%;
+  font-size: 2.5vw;
+  color: inherit;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    width: 98%;
-    margin-left: 1%;
+  list-style: none;
+  padding: 0;
+  width: 98%;
+  margin-left: 1%;
 }

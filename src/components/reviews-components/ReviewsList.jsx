@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./AllReviews.css";
 import SortReviews from "./SortReviews";
+import displayDate from "../../functions/displayDate";
 const axios = require("axios").default;
 
 export default function ReviewsList() {
@@ -30,7 +31,7 @@ export default function ReviewsList() {
 
   return (
     <div className="Page-Content Reviews-By-Category">
-      <SortReviews setSortBy={setSortBy} setOrderBy={setOrderBy} />
+      <SortReviews setSortBy={setSortBy} setOrderBy={setOrderBy} sortBy={sortBy}/>
       {isLoading ? (
         <img
           className="Loading-Screen"
@@ -57,7 +58,9 @@ export default function ReviewsList() {
                     </p>
                     <h5 className="Review-Card-Author">By {review.owner}</h5>
                     <div className="Review-Card-Bottom-Row-Info">
-                      {/* <h6 className="Review-Card-Date">{review.created_at}</h6> */}
+                      <h6 className="Review-Card-Date">
+                        {displayDate(review.created_at)}
+                      </h6>
                       <h6 className="Review-Card-Kudos">
                         {review.votes} Kudos
                       </h6>
