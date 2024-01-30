@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import getRelevantImage from "../../functions/getRelevantImage";
 import "./Categories.css";
-const axios = require("axios").default;
+import { fetchCategories } from "../../utils/api";
 
 export default function Categories() {
   const [categoriesList, setCategoriesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  function fetchCategories() {
-    setIsLoading(true);
-    axios
-      .get(`https://nc-my-game-reviews-project.herokuapp.com/api/categories`)
-      .then((response) => {
-        setIsLoading(false);
-        setCategoriesList(response.data.categories);
-      });
-  }
-
   useEffect(() => {
-    fetchCategories();
+    setIsLoading(true);
+    fetchCategories().then((response) => {
+      setIsLoading(false);
+      setCategoriesList(response.data.categories);
+    });
   }, []);
 
   if (isLoading)
@@ -45,7 +38,8 @@ export default function Categories() {
               <li className="Category-Card">
                 <img
                   className="Category-Image"
-                  src={getRelevantImage(category.slug)}
+                  src={category.category_img_url}
+                  alt=""
                 />
                 <h3 className="Category-Card-Name">
                   {category.slug.toUpperCase()}

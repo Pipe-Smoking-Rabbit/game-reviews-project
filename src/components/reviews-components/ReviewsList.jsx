@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "./AllReviews.css";
 import SortReviews from "./SortReviews";
 import displayDate from "../../functions/displayDate";
-const axios = require("axios").default;
+import { fetchReviews } from "../../utils/api";
 
 export default function ReviewsList() {
   const [reviewsList, setReviewsList] = useState([]);
@@ -13,25 +13,21 @@ export default function ReviewsList() {
   const { category } = useParams();
   const peekPreviewRegex = /.{1,100}/s;
 
-  function fetchReviews() {
-    setIsLoading(true);
-    axios
-      .get(`https://nc-my-game-reviews-project.herokuapp.com/api/reviews`, {
-        params: { category: category, sort_by: sortBy, order: orderBy },
-      })
-      .then((response) => {
-        setIsLoading(false);
-        setReviewsList(response.data.reviews);
-      });
-  }
-
   useEffect(() => {
-    fetchReviews();
+    setIsLoading(true);
+    fetchReviews(category, sortBy, orderBy).then((response) => {
+      setIsLoading(false);
+      setReviewsList(response.data.reviews);
+    });
   }, [category, sortBy, orderBy]);
 
   return (
     <div className="Page-Content Reviews-By-Category">
-      <SortReviews setSortBy={setSortBy} setOrderBy={setOrderBy} sortBy={sortBy}/>
+      <SortReviews
+        setSortBy={setSortBy}
+        setOrderBy={setOrderBy}
+        sortBy={sortBy}
+      />
       {isLoading ? (
         <img
           className="Loading-Screen"
@@ -72,6 +68,7 @@ export default function ReviewsList() {
                   <img
                     className="Review-Card-Image"
                     src={review.review_img_url}
+                    alt="people playing the game"
                   />
                 </li>
               </Link>
