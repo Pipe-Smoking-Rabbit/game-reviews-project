@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-import { fetchComments } from "../../utils/api";
+import { useState, useEffect, useContext } from "react";
+import { fetchComments, removeComment } from "../../utils/api";
 import displayDate from "../../functions/displayDate";
 import "./Comments.css";
 import PostComment from "./PostComment";
+import { UserContext } from "../../contexts/CurrentUser";
 
 export default function ViewComments({ review_id, setCommentCount }) {
+  const { user } = useContext(UserContext);
   const [commentsList, setCommentsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +16,16 @@ export default function ViewComments({ review_id, setCommentCount }) {
       setCommentsList(response.data.comments.reverse());
       setIsLoading(false);
     });
-  }, []);
+  }, [review_id]);
+
+  const deleteComment = (comment_id) => {
+    removeComment(comment_id).then(() => {
+      setCommentsList((currentComments) =>
+        currentComments.filter((comment) => comment.comment_id !== comment_id)
+      );
+      setCommentCount((previousCount) => previousCount - 1);
+    });
+  };
 
   if (isLoading)
     return (
@@ -38,8 +49,15 @@ export default function ViewComments({ review_id, setCommentCount }) {
           return (
             <li className="Comment-Card" key={comment.comment_id}>
               <h6 className="Comment-Card-Author">{comment.author} -</h6>
-              <h6 className="Comment-Card-Date">{displayDate(comment.created_at)}</h6>
+              <h6 className="Comment-Card-Date">
+                {displayDate(comment.created_at)}
+              </h6>
               <p className="Comment-Card-Body">{comment.body}</p>
+              {user.username === comment.author ? (
+                <button onClick={() => deleteComment(comment.comment_id)}>
+                  delete
+                </button>
+              ) : null}
             </li>
           );
         })}

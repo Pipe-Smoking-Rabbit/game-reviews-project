@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUser";
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/CurrentUser";
 import { postComment } from "../../utils/api";
 import "./Comments.css";
 
@@ -9,25 +9,20 @@ export default function PostComment({
   setCommentCount,
 }) {
   const {
-    currentUser: { username },
-  } = useContext(CurrentUserContext);
+    user: { username },
+  } = useContext(UserContext);
   const [newCommentBody, setNewCommentBody] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     if (newCommentBody.length) {
-      const newComment = {
-        author: username,
-        created_at: "just now",
-        body: newCommentBody,
-        comment_id: Math.random(),
-      };
-      setCommentsList((currentCommentList) => {
-        return [newComment, ...currentCommentList];
-      });
       postComment(review_id, {
-        username: newComment.author,
-        body: newComment.body,
+        username,
+        body: newCommentBody,
+      }).then(({ data: { comment } }) => {
+        setCommentsList((currentCommentList) => {
+          return [comment, ...currentCommentList];
+        });
       });
       setNewCommentBody("");
       setCommentCount((previousCommentCount) => {

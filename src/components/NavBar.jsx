@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import {Link} from 'react-router-dom'
-import { CurrentUserContext } from '../contexts/CurrentUser';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../contexts/CurrentUser";
 
 export default function NavBar() {
-  const {currentUser, setCurrentUser} = useContext(CurrentUserContext)
+  const { user } = useContext(UserContext);
 
   return (
     <nav className="Nav-Bar">
@@ -17,7 +17,7 @@ export default function NavBar() {
         {
           <button className="Nav-Bar-Users-Button">
             Switch User
-            <img className="Nav-Bar-Avatar" src={currentUser.avatar_url} />
+            <img className="Nav-Bar-Avatar" src={user.avatar_url} alt="" />
           </button>
         }
       </Link>

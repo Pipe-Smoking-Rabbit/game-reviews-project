@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUser";
+import { UserContext } from "../../contexts/CurrentUser";
 import { Link } from "react-router-dom";
 import { fetchUsers } from "../../utils/api";
 import "./UserLogin.css";
 
 export default function UserLogin() {
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
+  const { setUser } = useContext(UserContext);
   const [usersList, setUsersList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,9 +16,9 @@ export default function UserLogin() {
       setIsLoading(false);
     });
   }, []);
-  
-  function switchUser(user){
-    setCurrentUser(user)
+
+  function switchUser(user) {
+    setUser(user);
   }
 
   if (isLoading)
@@ -33,11 +33,17 @@ export default function UserLogin() {
     );
   return (
     <section className="Page-Content">
-        <h2 className="User-Page-Subtitle">Who is looking at reviews?</h2>
+      <h2 className="User-Page-Subtitle">Who is looking at reviews?</h2>
       <ul>
         {usersList.map((user) => {
           return (
-            <li className="User-Card" onClick={()=>{switchUser(user)}} key={user.username}>
+            <li
+              className="User-Card"
+              onClick={() => {
+                switchUser(user);
+              }}
+              key={user.username}
+            >
               <Link className="Card-Link" to={"/"}>
                 <img
                   className="User-Card-Image"

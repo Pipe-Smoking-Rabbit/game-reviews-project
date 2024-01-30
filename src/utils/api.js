@@ -33,3 +33,7 @@ export function fetchCategories() {
 export function fetchSingleReview(review_id) {
   return api.get(`/reviews/${review_id}`);
 }
+
+export function removeComment (comment_id) {
+  return api.delete(`/comments/${comment_id}`)
+}

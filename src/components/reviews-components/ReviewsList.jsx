@@ -29,11 +29,11 @@ export default function ReviewsList() {
         sortBy={sortBy}
       />
       {isLoading ? (
-        <img
-          className="Loading-Screen"
-          src="https://qph.cf2.quoracdn.net/main-qimg-7a960949a5d51cf8b6ffef964d57feec"
-          alt="Loading reviews..."
-        />
+        <section>
+          <div className="Review-Card"></div>
+          <div className="Review-Card"></div>
+          <div className="Review-Card"></div>
+        </section>
       ) : (
         <ul>
           {reviewsList.map((review) => {
