@@ -20,7 +20,7 @@ export default function SingleReview() {
       setReview(response.data.review);
       setCommentCount(+response.data.review.comment_count);
     });
-  }, []);
+  }, [review_id]);
 
   if (isLoading)
     return (
@@ -43,7 +43,7 @@ export default function SingleReview() {
             {displayDate(review.created_at)}
           </p>
         </div>
-        <img className="Single-Review-Image" src={review.review_img_url} />
+        <img className="Single-Review-Image" src={review.review_img_url} alt="" />
       </header>
       <p className="Single-Review-Body">{review.review_body}</p>
       <KudosSingleReview review={review} />
